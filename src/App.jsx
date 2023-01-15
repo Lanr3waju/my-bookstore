@@ -7,8 +7,8 @@ function App() {
     <BrowserRouter>
       <h1>My BookStore</h1>
       <Routes>
-        <Route path="/books/:id" element={<Books />} />
-        <Route path="/" element={<Book />} />
+        <Route path="/book/:id" element={<Book />} />
+        <Route path="/" element={<Books />} />
       </Routes>
     </BrowserRouter>
   );

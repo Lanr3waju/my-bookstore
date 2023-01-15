@@ -1,5 +1,9 @@
+import Book from "./Book";
+
 function Books() {
-  <h1>Books</h1>;
+    return (
+        <Book />
+    )
 }
 
 export default Books;
