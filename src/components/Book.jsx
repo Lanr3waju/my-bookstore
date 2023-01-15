@@ -1,6 +1,5 @@
 function Book() {
-
-    <h1>Book</h1>
+  <h1>Book</h1>;
 }
 
-export default Book
+export default Book;
