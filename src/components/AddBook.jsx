@@ -2,8 +2,8 @@ import { useState } from "react";
 
 function AddBook() {
     const [newBookVal, setNewBookValues] = useState({
-        bookTitle: '',
-        bookAuthor: '',
+        title: '',
+        author: '',
     });
 
     function handleNewBook({ target: { value, name } }) {
@@ -13,26 +13,33 @@ function AddBook() {
         }));
     }
 
+    const { title, author } = newBookVal
     return (
-        <form className="welcome-page">
+        < form className="welcome-page" >
             <h1>Add Book</h1>
             <input
+                className="border-blue border-4"
+                aria-label="Book Title"
+                placeholder="Enter book title"
                 type="text"
-                id="bookTitle"
-                value={newBookVal.bookTitle}
+                id="title"
+                value={title}
                 onChange={handleNewBook}
-                name="bookTitle"
+                name="title"
             />
 
             <input
+                className="border-blue border-4"
+                aria-label="Book Author"
+                placeholder="Enter book author"
                 type="text"
-                id="bookAuthor"
-                value={newBookVal.bookAuthor}
+                id="author"
+                value={author}
                 onChange={handleNewBook}
-                name="bookAuthor"
+                name="author"
             />
 
-        </form>
+        </form >
     )
 }
 
