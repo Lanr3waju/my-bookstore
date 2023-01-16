@@ -2,7 +2,12 @@ import Book from "./Book";
 
 function Books() {
     return (
-        <Book />
+        <ul>
+            <li>
+                <Book />
+                <button type="button">Remove</button>
+            </li>
+        </ul>
     )
 }
 
