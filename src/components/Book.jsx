@@ -1,11 +1,14 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function Book({ title, author }) {
     return (
-        <ul>
-            <li>{title}</li>
-            <li>{author}</li>
-        </ul>
+        <Link to={`/book/${title}`}>
+            <ul>
+                <li>{title} Hello</li>
+                <li>{author} Book</li>
+            </ul>
+        </Link>
     )
 }
 
