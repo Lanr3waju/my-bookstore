@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 
 function Book({ book: { title, author } }) {
-  console.log(title)
   return (
     <>
       <h2>{title}</h2>
