@@ -1,11 +1,13 @@
 import PropTypes from "prop-types";
 
-function Book({ title, author }) {
+function Book({ book: { title, author } }) {
+  console.log(title)
   return (
     <>
       <h2>{title}</h2>
       <h3>{author} </h3>
-      <button type="button">Remove</button>
+      <button className="border-b-8" type="button">Remove</button>
+      <hr />
     </>
   );
 }
@@ -13,6 +15,9 @@ function Book({ title, author }) {
 export default Book;
 
 Book.propTypes = {
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+  book: PropTypes.shape({
+    title: PropTypes.string,
+    author: PropTypes.string,
+    id: PropTypes.number
+  }).isRequired,
 };
