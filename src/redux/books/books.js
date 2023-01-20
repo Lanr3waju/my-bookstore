@@ -7,9 +7,9 @@ export const addBook = payload => ({
     type: ADD_BOOK,
     payload
 })
-export const removeBook = id => ({
+export const removeBook = payload => ({
     type: REMOVE_BOOK,
-    id
+    payload
 })
 
 const reducer = (state = initialState, action) => {
@@ -22,7 +22,7 @@ const reducer = (state = initialState, action) => {
         return [ ...state, action.payload];
         */
         case REMOVE_BOOK:
-            return initialState.filter(book => book.id !== action.id);
+            return initialState.filter(book => book.id !== action.payload);
         /*
         use ES6 filter() method to create a new array, which will not contain the book you want to remove from the store (filter by the id key - i.e.: 
         return state.filter(book => book.id !== id);
