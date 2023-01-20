@@ -1,6 +1,7 @@
-import { useState, useId } from "react";
+import { useState } from "react";
 import { useDispatch } from 'react-redux';
 // import your Action Creators
+import { nanoid } from "nanoid";
 import { addBook } from '../redux/books/books';
 
 const dispatch = useDispatch()
@@ -8,7 +9,7 @@ const dispatch = useDispatch()
 function AddBook() {
 
   const [newBook, setNewBook] = useState({
-    id: useId(),
+    id: nanoid(),
     title: "",
     author: "",
   });
