@@ -1,21 +1,32 @@
-import { useState } from "react";
+import { useState, useId } from "react";
+import { useDispatch } from 'react-redux';
+// import your Action Creators
+import { addBook } from '../redux/books/books';
+
+const dispatch = useDispatch()
 
 function AddBook() {
-  const [newBookVal, setNewBookValues] = useState({
+
+  const [newBook, setNewBook] = useState({
+    id: useId(),
     title: "",
     author: "",
   });
 
   function handleNewBook({ target: { value, name } }) {
-    setNewBookValues((prevFormData) => ({
+    setNewBook((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
   }
 
-  const { title, author } = newBookVal;
+  const submitBook = () => {
+    dispatch(addBook(newBook));
+  }
+
+  const { title, author } = newBook;
   return (
-    <form className="welcome-page">
+    <form onSubmit={submitBook}>
       <h1>Add Book</h1>
       <input
         className="border-blue border-4"
@@ -38,6 +49,8 @@ function AddBook() {
         onChange={handleNewBook}
         name="author"
       />
+
+      <button type="submit" >Submit</button>
     </form>
   );
 }

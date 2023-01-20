@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/books';
 import AddBook from "./AddBook";
 import Book from "./Book";
 
@@ -20,13 +22,19 @@ const data = [
 function Books() {
   const [books] = useState(data);
 
+  const dispatch = useDispatch()
+
+  const handleRemoveBook = (id) => (
+    dispatch(removeBook(id))
+  )
+
   return (
     <>
-      <ul>{books?.length > 0 && books?.map((book) => (
+      <ul>{books.length > 0 && books.map((book) => (
         <li key={book.title}>
-          <Link to={`/book/${book.title}`}>
-            <Book book={book} />
-          </Link>
+          {/* <Link to={`/book/${book.title}`}> */}
+          <Book book={books} handleRemoveBook={(id) => handleRemoveBook(id)} />
+          {/* </Link> */}
         </li>
       ))
       }</ul>
