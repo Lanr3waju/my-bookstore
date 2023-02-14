@@ -54,7 +54,7 @@ function AddBook() {
         name="author"
       />
 
-      <button type="submit" >Submit</button>
+      <button disabled={title === "" || author === ""} className="bg-slate-900 text-white disabled:bg-slate-500" type="submit" >Submit</button>
     </form>
   );
 }

@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { removeBook } from '../redux/books/books';
 import AddBook from "./AddBook";
@@ -11,10 +10,8 @@ function Books() {
 
   const bookEl = booksList.map(({ id, title, author }) => (
     <li className="mb-4" key={id}>
-      {/* <Link to={`/book/${book.title}`}> */}
       <Book title={title} author={author} id={id} />
       <button onClick={() => dispatch(removeBook(id))} className="bg-slate-700 text-yellow-50" type="button">Remove</button>
-      {/* </Link> */}
       <hr />
     </li>
   ))
