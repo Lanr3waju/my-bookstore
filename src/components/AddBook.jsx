@@ -1,15 +1,16 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { nanoid } from "nanoid";
 // import your Action Creators
 import { addBook } from '../redux/books/books';
 
 function AddBook() {
   const dispatch = useDispatch()
-  const booksList = useSelector((state) => state.booksReducer)
 
   const [newBook, setNewBook] = useState({
     title: "",
     author: "",
+    id: nanoid()
   });
 
   function handleNewBook({ target: { value, name } }) {
@@ -21,14 +22,10 @@ function AddBook() {
 
   const submitBook = (e) => {
     e.preventDefault();
-    const id = booksList.length + 1
-    const { title, author } = newBook;
-    const bookToAdd = {
-      title,
-      author,
-      id,
-    }
-    dispatch(addBook(bookToAdd));
+    dispatch(addBook(newBook));
+    setNewBook((prevFormData) => ({
+      ...prevFormData, title: "", author: "", id: nanoid()
+    }))
   }
 
   const { title, author } = newBook;

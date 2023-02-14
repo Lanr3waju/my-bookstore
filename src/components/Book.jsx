@@ -1,23 +1,24 @@
 import PropTypes from "prop-types";
 
-function Book({ book: { title, author, id }, handleRemoveBook }) {
+function Book({ title, author, id }) {
   return (
-    <>
+    <section id={id}>
       <h2>{title}</h2>
       <h3>{author} </h3>
-      <button onClick={handleRemoveBook(id)} className="border-b-8" type="button">Remove</button>
-      <hr />
-    </>
+    </section>
   );
 }
 
 export default Book;
 
+Book.defaultProps = {
+  id: '',
+  title: '',
+  author: '',
+};
+
 Book.propTypes = {
-  book: PropTypes.shape({
-    title: PropTypes.string,
-    author: PropTypes.string,
-    id: PropTypes.number
-  }).isRequired,
-  handleRemoveBook: PropTypes.func.isRequired
+  id: PropTypes.string,
+  title: PropTypes.string,
+  author: PropTypes.string,
 };

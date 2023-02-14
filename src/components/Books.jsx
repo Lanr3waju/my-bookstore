@@ -1,43 +1,29 @@
-import { useState } from "react";
 // import { Link } from "react-router-dom";
-// import { useDispatch } from 'react-redux';
-// import { removeBook } from '../redux/books/books';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeBook } from '../redux/books/books';
 import AddBook from "./AddBook";
-// import Book from "./Book";
-
-const data = [
-  {
-    id: 1,
-    author: "Kyle Simpson",
-    title: "You don't know JS"
-  },
-  {
-    id: 2,
-    author: "Chinua Achebe",
-    title: "Things fall apart"
-  }
-]
+import Book from "./Book";
 
 
 function Books() {
-  const [books] = useState(data);
+  const booksList = useSelector((state) => state.booksReducer)
+  const dispatch = useDispatch()
 
-  // const dispatch = useDispatch()
-
-  // const handleRemoveBook = (id) => (
-  //   // dispatch(removeBook(id))
-  // )
+  const bookEl = booksList.map(({ id, title, author }) => (
+    <li className="mb-4" key={id}>
+      {/* <Link to={`/book/${book.title}`}> */}
+      <Book title={title} author={author} id={id} />
+      <button onClick={() => dispatch(removeBook(id))} className="bg-slate-700 text-yellow-50" type="button">Remove</button>
+      {/* </Link> */}
+      <hr />
+    </li>
+  ))
 
   return (
     <>
-      <ul>{books.length > 0 && books.map((book) => (
-        <li key={book.title}>
-          {/* <Link to={`/book/${book.title}`}> */}
-          {/* <Book book={books} handleRemoveBook={(id) => handleRemoveBook(id)} /> */}
-          {/* </Link> */}
-        </li>
-      ))
-      }</ul>
+      <ul className="my-6">
+        {booksList.length > 0 ? bookEl : <h2 className='text-red-600 text-xl font-bold animate-pulse'>No Book Yet</h2>}
+      </ul>
       <AddBook />
     </>
   );
