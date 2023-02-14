@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
 // import your Action Creators
-import { addBook } from '../redux/books/books';
+import { addBook } from "../redux/books/books";
 
 function AddBook() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [newBook, setNewBook] = useState({
     title: "",
     author: "",
-    id: nanoid()
+    id: nanoid(),
   });
 
   function handleNewBook({ target: { value, name } }) {
@@ -24,9 +24,12 @@ function AddBook() {
     e.preventDefault();
     dispatch(addBook(newBook));
     setNewBook((prevFormData) => ({
-      ...prevFormData, title: "", author: "", id: nanoid()
-    }))
-  }
+      ...prevFormData,
+      title: "",
+      author: "",
+      id: nanoid(),
+    }));
+  };
 
   const { title, author } = newBook;
   return (
@@ -54,7 +57,13 @@ function AddBook() {
         name="author"
       />
 
-      <button disabled={title === "" || author === ""} className="bg-slate-900 text-white disabled:bg-slate-500" type="submit" >Submit</button>
+      <button
+        disabled={title === "" || author === ""}
+        className="bg-slate-900 text-white disabled:bg-slate-500"
+        type="submit"
+      >
+        Submit
+      </button>
     </form>
   );
 }

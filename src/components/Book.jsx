@@ -12,9 +12,9 @@ function Book({ title, author, id }) {
 export default Book;
 
 Book.defaultProps = {
-  id: '',
-  title: '',
-  author: '',
+  id: "",
+  title: "",
+  author: "",
 };
 
 Book.propTypes = {
