@@ -2,9 +2,9 @@ import {
   legacy_createStore as createStore,
   combineReducers,
   applyMiddleware,
-} from 'redux';
-import logger from 'redux-logger';
-import booksReducer from './books/books';
+} from "redux";
+import logger from "redux-logger";
+import booksReducer from "./books/books";
 
 const reducer = combineReducers({
   booksReducer,
