@@ -1,6 +1,6 @@
-const ADD_BOOK = "bookStore/books/ADD_BOOK";
-const REMOVE_BOOK = "bookStore/books/REMOVE_BOOK";
-const EDIT_BOOK = "bookStore/books/EDIT_BOOK";
+const ADD_BOOK = 'bookStore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
+const EDIT_BOOK = 'bookStore/books/EDIT_BOOK';
 
 const initialState = [];
 
@@ -26,9 +26,10 @@ const reducer = (state = initialState, action) => {
       return state.filter((book) => book.id !== action.payload);
 
     case EDIT_BOOK:
-      return state.map((book) =>
-        book.id === action.payload.id ? { ...action.payload } : book
-      );
+      return state.map((book) => {
+        if (book.id === action.payload.id) return { ...action.payload };
+        return book;
+      });
 
     default:
       return state;

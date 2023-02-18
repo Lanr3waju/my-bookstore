@@ -7,12 +7,13 @@ function BookList() {
 
   return (
     <>
-      {
-        booksList.length >= 1 ? <Books books={booksList} /> :
-          <h2 className="text-red-600 text-xl font-bold animate-pulse">
-            No Book Yet
-          </h2>
-      }
+      {booksList.length >= 1 ? (
+        <Books books={booksList} />
+      ) : (
+        <h2 className="text-red-600 text-xl font-bold animate-pulse">
+          No Book Yet
+        </h2>
+      )}
       <AddBook />
     </>
   );
