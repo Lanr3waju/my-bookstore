@@ -21,6 +21,11 @@ function Books({ books }) {
 export default Books;
 
 Books.propTypes = {
-    books: PropTypes.string.isRequired,
+    books: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            author: PropTypes.string.isRequired,
+            id: PropTypes.string.isRequired
+        }).isRequired
+    ).isRequired
 };
-
