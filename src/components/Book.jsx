@@ -10,8 +10,20 @@ function Book({ title, author, id }) {
 
   return (
     <section className="mb-4" id={id}>
-      <h2>{title}</h2>
-      <h3>{author} </h3>
+      {bookEditState ? (
+        <EditBook
+          author={author}
+          title={title}
+          id={id}
+          closeEditMenu={() => setBookEditState(false)}
+        />
+      ) : (
+        <section>
+          <h2>{title}</h2>
+          <h3>{author} </h3>
+        </section>
+      )}
+
       <button
         onClick={() => dispatch(removeBook(id))}
         className="bg-slate-700 mx-3 rounded-lg text-yellow-50"
@@ -26,14 +38,6 @@ function Book({ title, author, id }) {
       >
         Edit book
       </button>
-      {bookEditState && (
-        <EditBook
-          author={author}
-          title={title}
-          id={id}
-          closeEditMenu={() => setBookEditState(false)}
-        />
-      )}
       <hr />
     </section>
   );
