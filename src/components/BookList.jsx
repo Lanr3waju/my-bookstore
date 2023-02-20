@@ -6,7 +6,7 @@ function BookList() {
   const booksList = useSelector((state) => state.booksReducer);
 
   return (
-    <>
+    <section>
       {booksList.length >= 1 ? (
         <Books books={booksList} />
       ) : (
@@ -15,7 +15,7 @@ function BookList() {
         </h2>
       )}
       <AddBook />
-    </>
+    </section>
   );
 }
 
