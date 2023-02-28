@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header isDark={isDark} handleIsDark={handleIsDark} />
-      <main className="px-12 mt-5">
+      <main className={isDark ? "px-12 py-16 text-white bg-slate-700 min-h-screen font-poppins" : "px-12 bg-blue-50 py-16 min-h-screen font-poppins"}>
         <Routes>
           <Route path="/" element={<BookList isDark={isDark} />} />
         </Routes>

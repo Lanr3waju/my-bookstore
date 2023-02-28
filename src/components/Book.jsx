@@ -1,15 +1,16 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import EditBook from "./EditBook";
-import { removeBook } from "../redux/books/books";
 
-function Book({ title, author, id }) {
+
+function Book({ title, author, id, isDark, displayModal }) {
   const [bookEditState, setBookEditState] = useState(false);
-  const dispatch = useDispatch();
 
   return (
-    <section className="mb-4" id={id}>
+    <section
+      className={isDark ? "mb-4 shadow-sm text-white shadow-black mx-auto bg-slate-800 p-4 rounded-sm w-4/5" :
+        "mb-4 shadow-sm shadow-slate-800 bg-slate-200 p-4 rounded-sm mx-auto w-4/5"}
+      id={id}>
       {bookEditState ? (
         <EditBook
           author={author}
@@ -19,27 +20,30 @@ function Book({ title, author, id }) {
         />
       ) : (
         <section>
-          <h2>{title}</h2>
-          <h3>{author} </h3>
+          <h2 className="uppercase text-lg font-semibold tracking-wider" >{title}</h2>
+          <h3 className={isDark ? "capitalize text-gray-300 text-sm" : "text-sm capitalize text-gray-600"}>{author} </h3>
         </section>
-      )}
+      )
+      }
 
-      <button
-        onClick={() => dispatch(removeBook(id))}
-        className="bg-slate-700 mx-3 rounded-lg text-yellow-50"
-        type="button"
-      >
-        Remove
-      </button>
-      <button
-        onClick={() => setBookEditState(true)}
-        className="bg-orange-700 mx-3 rounded-lg text-yellow-50"
-        type="button"
-      >
-        Edit book
-      </button>
-      <hr />
-    </section>
+      <div className="flex w-1/6 mt-6 justify-between">
+        <button
+          onClick={displayModal}
+          className="bg-red-600 rounded-sm p-2 text-sm text-yellow-50"
+          type="button"
+        >
+          remove
+        </button>
+        <div className="min-h-full w-[1px] bg-sky-400" />
+        <button
+          onClick={() => setBookEditState(true)}
+          className="bg-orange-800 rounded-sm p-2 text-sm text-yellow-50"
+          type="button"
+        >
+          edit book
+        </button>
+      </div>
+    </section >
   );
 }
 
@@ -55,4 +59,6 @@ Book.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
   author: PropTypes.string,
+  isDark: PropTypes.bool.isRequired,
+  displayModal: PropTypes.func.isRequired
 };

@@ -33,38 +33,40 @@ function AddBook() {
 
   const { title, author } = newBook;
   return (
-    <form onSubmit={submitBook}>
-      <h1>Add Book</h1>
-      <input
-        className="border-blue border-4"
-        aria-label="Book Title"
-        placeholder="Enter book title"
-        type="text"
-        id="title"
-        value={title}
-        onChange={handleNewBook}
-        name="title"
-      />
+    <>
+      <h1 className="font-semibold text-sky-500 text-lg">ADD NEW BOOK</h1>
+      <form className="" onSubmit={submitBook}>
+        <input
+          className="w-2/6 p-2 m-3 shadow-sm shadow-black font-medium text-black"
+          aria-label="Book Title"
+          placeholder="Enter book title"
+          type="text"
+          id="title"
+          value={title}
+          onChange={handleNewBook}
+          name="title"
+        />
 
-      <input
-        className="border-blue border-4"
-        aria-label="Book Author"
-        placeholder="Enter book author"
-        type="text"
-        id="author"
-        value={author}
-        onChange={handleNewBook}
-        name="author"
-      />
+        <input
+          className="w-2/6 p-2 m-3 shadow-sm shadow-black font-medium text-black"
+          aria-label="Book Author"
+          placeholder="Enter book author"
+          type="text"
+          id="author"
+          value={author}
+          onChange={handleNewBook}
+          name="author"
+        />
 
-      <button
-        disabled={title === "" || author === ""}
-        className="bg-slate-900 text-white disabled:bg-slate-500"
-        type="submit"
-      >
-        Submit
-      </button>
-    </form>
+        <button
+          disabled={title === "" || author === ""}
+          className="bg-slate-900 p-2 text-white disabled:opacity-10"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </>
   );
 }
 

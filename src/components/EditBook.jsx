@@ -35,7 +35,7 @@ function EditBook({
   return (
     <form onSubmit={submitBook}>
       <input
-        className="border-blue border-4"
+        className="w-1/4 rounded-sm p-2 mr-3 shadow-sm shadow-black font-medium text-black"
         aria-label="Book Title"
         placeholder="Enter book title"
         type="text"
@@ -46,7 +46,7 @@ function EditBook({
       />
 
       <input
-        className="border-blue border-4"
+        className="w-1/4 rounded-sm p-2 mr-3 shadow-sm shadow-black font-medium text-black"
         aria-label="Book Author"
         placeholder="Enter book author"
         type="text"
@@ -58,7 +58,7 @@ function EditBook({
 
       <button
         disabled={title === "" || author === ""}
-        className="bg-slate-900 text-white disabled:bg-slate-500"
+        className="bg-slate-900 p-2 text-white disabled:opacity-10"
         type="submit"
       >
         Change
