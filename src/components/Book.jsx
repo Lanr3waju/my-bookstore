@@ -7,7 +7,7 @@ function Book({ title, author, id, isDark, displayModal }) {
   const [bookEditState, setBookEditState] = useState(false);
 
   return (
-    <section
+    <section key={id}
       className={isDark ? "mb-4 shadow-sm text-white shadow-black mx-auto bg-slate-800 p-4 rounded-sm w-4/5" :
         "mb-4 shadow-sm shadow-slate-800 bg-slate-200 p-4 rounded-sm mx-auto w-4/5"}
       id={id}>

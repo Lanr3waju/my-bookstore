@@ -21,7 +21,7 @@ const Books = ({ books, isDark }) => {
   return (
     <ul className="my-6">
       {books.map(({ id, title, author }) => (
-        <>
+        <li key={id}>
           {modal &&
             <Modal>
               <div key={id} className="bg-slate-700 z-50 opacity-100 border-2 rounded-lg p-20 text-white">
@@ -33,11 +33,10 @@ const Books = ({ books, isDark }) => {
                   <button className="mx-4 bg-green-600 hover:bg-green-700 transition-all border-2 px-7 py-2 rounded border-white text-xl" onClick={() => setModal(false)} type="button">No</button>
                 </div>
               </div>
-            </Modal>}
-          <li key={id}>
-            <Book displayModal={displayModal} isDark={isDark} title={title} author={author} id={id} />
-          </li>
-        </>
+            </Modal>
+          }
+          <Book displayModal={displayModal} isDark={isDark} title={title} author={author} id={id} />
+        </li>
       ))}
     </ul>
   );
