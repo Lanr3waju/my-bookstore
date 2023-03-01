@@ -1,4 +1,4 @@
-import undoable from "redux-undo";
+import undoable from 'redux-undo';
 
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
@@ -38,6 +38,6 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-const booksReducer = undoable(reducer, { limit: 5 })
+const booksReducer = undoable(reducer, { limit: 5 });
 
 export default booksReducer;

@@ -2,15 +2,19 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import EditBook from "./EditBook";
 
-
 function Book({ title, author, id, isDark, displayModal }) {
   const [bookEditState, setBookEditState] = useState(false);
 
   return (
-    <section key={id}
-      className={isDark ? "mb-4 shadow-sm text-white shadow-black mx-auto bg-slate-800 p-4 rounded-sm w-4/5" :
-        "mb-4 shadow-sm shadow-slate-800 bg-slate-200 p-4 rounded-sm mx-auto w-4/5"}
-      id={id}>
+    <section
+      key={id}
+      className={
+        isDark
+          ? "mb-4 shadow-sm text-white shadow-black mx-auto bg-slate-800 p-4 rounded-sm w-4/5"
+          : "mb-4 shadow-sm shadow-slate-800 bg-slate-200 p-4 rounded-sm mx-auto w-4/5"
+      }
+      id={id}
+    >
       {bookEditState ? (
         <EditBook
           author={author}
@@ -20,11 +24,20 @@ function Book({ title, author, id, isDark, displayModal }) {
         />
       ) : (
         <section>
-          <h2 className="uppercase text-lg font-semibold tracking-wider" >{title}</h2>
-          <h3 className={isDark ? "capitalize text-gray-300 text-sm" : "text-sm capitalize text-gray-600"}>{author} </h3>
+          <h2 className="uppercase text-lg font-semibold tracking-wider">
+            {title}
+          </h2>
+          <h3
+            className={
+              isDark
+                ? "capitalize text-gray-300 text-sm"
+                : "text-sm capitalize text-gray-600"
+            }
+          >
+            {author}{" "}
+          </h3>
         </section>
-      )
-      }
+      )}
 
       <div className="flex w-1/6 mt-6 justify-between">
         <button
@@ -43,7 +56,7 @@ function Book({ title, author, id, isDark, displayModal }) {
           edit book
         </button>
       </div>
-    </section >
+    </section>
   );
 }
 
@@ -60,5 +73,5 @@ Book.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
   isDark: PropTypes.bool.isRequired,
-  displayModal: PropTypes.func.isRequired
+  displayModal: PropTypes.func.isRequired,
 };

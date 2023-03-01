@@ -13,12 +13,12 @@ const reducer = combineReducers({
 
 const persistedState = localStorage.getItem('reduxState')
   ? JSON.parse(localStorage.getItem('reduxState'))
-  : {}
+  : {};
 
 const store = createStore(reducer, persistedState, applyMiddleware(logger));
 
 store.subscribe(() => {
-  localStorage.setItem('reduxState', JSON.stringify(store.getState()))
-})
+  localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+});
 
 export default store;

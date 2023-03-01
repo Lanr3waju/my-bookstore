@@ -4,9 +4,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "poppins": "Poppins, sans-serif",
-        "tilt-neon": "Tilt Neon, cursive"
-      }
+        poppins: "Poppins, sans-serif",
+        "tilt-neon": "Tilt Neon, cursive",
+      },
     },
   },
   plugins: ["@tailwindcss/forms"],
