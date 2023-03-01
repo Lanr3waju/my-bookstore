@@ -6,7 +6,7 @@ import Modal from "./Modal";
 
 import { removeBook } from "../redux/books/books";
 
-function Books({ books, isDark }) {
+const Books = ({ books, isDark }) => {
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
 
@@ -24,7 +24,7 @@ function Books({ books, isDark }) {
         <>
           {modal &&
             <Modal>
-              <div className="bg-slate-700 z-50 opacity-100 border-2 rounded-lg p-20 text-white">
+              <div key={id} className="bg-slate-700 z-50 opacity-100 border-2 rounded-lg p-20 text-white">
                 <h2 className="text-2xl">
                   Are you sure you want to remove book?
                 </h2>

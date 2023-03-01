@@ -12,8 +12,8 @@ function BookList({ isDark }) {
         {booksList.length >= 1 ? (
           <Books isDark={isDark} books={booksList} />
         ) : (
-          <h2 className="text-red-600 text-3xl font-bold animate-pulse text-center">
-            No Book Yet
+          <h2 className="text-red-600 text-3xl font-bold text-center bg-slate-300 opacity-50 p-5 rounded-3xl max-w-fit">
+            No Book Here @ The Moment.
           </h2>
         )}
       </section>
