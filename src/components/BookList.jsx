@@ -4,7 +4,7 @@ import AddBook from "./AddBook";
 import Books from "./Books";
 
 function BookList({ isDark }) {
-  const booksList = useSelector((state) => state.booksReducer);
+  const booksList = useSelector((state) => state.booksReducer.present);
 
   return (
     <>

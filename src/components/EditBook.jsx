@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 // import your Action Creators
 import { editBook } from "../redux/books/books";
@@ -11,27 +11,37 @@ function EditBook({
   closeEditMenu,
 }) {
   const dispatch = useDispatch();
+  const prevBookRef = useRef();
 
-  const [currentBook, setCurrentBook] = useState({
+  const [book, setBook] = useState({
     title: currentTitle,
     author: currentAuthor,
     id: bookId,
   });
 
-  function handleCurrentBook({ target: { value, name } }) {
-    setCurrentBook((prevFormData) => ({
+  function handleBook({ target: { value, name } }) {
+    setBook((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
   }
 
+  // Track previous book to prevent unnecessary EDIT_ACTION calls
+
+  useEffect(() => {
+    prevBookRef.current = book;
+  }, [book.title]);
+
   const submitBook = (e) => {
     e.preventDefault();
-    dispatch(editBook(currentBook));
+    if (prevBookRef.current !== book) {
+      dispatch(editBook(book));
+    }
+
     closeEditMenu();
   };
 
-  const { title, author } = currentBook;
+  const { title, author } = book;
   return (
     <form onSubmit={submitBook}>
       <input
@@ -41,7 +51,7 @@ function EditBook({
         type="text"
         id="title"
         value={title}
-        onChange={handleCurrentBook}
+        onChange={handleBook}
         name="title"
       />
 
@@ -52,7 +62,7 @@ function EditBook({
         type="text"
         id="author"
         value={author}
-        onChange={handleCurrentBook}
+        onChange={handleBook}
         name="author"
       />
 
