@@ -30,7 +30,10 @@ function EditBook({
   const submitBook = (e) => {
     e.preventDefault();
     // Check if book is actually edited to prevent unnecessary EDIT_ACTION calls.
-    if (presentBook.title !== editedBook.title || presentBook.author !== editedBook.author) {
+    if (
+      presentBook.title !== editedBook.title ||
+      presentBook.author !== editedBook.author
+    ) {
       dispatch(editBook(editedBook));
     }
 
