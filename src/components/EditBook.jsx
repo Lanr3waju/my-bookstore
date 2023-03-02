@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { useState, useRef, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // import your Action Creators
 import { editBook } from "../redux/books/books";
 
@@ -10,38 +10,34 @@ function EditBook({
   id: bookId,
   closeEditMenu,
 }) {
+  const presentBooks = useSelector((state) => state.booksReducer.present);
+  const presentBook = presentBooks.find(({ id }) => id === bookId);
   const dispatch = useDispatch();
-  const prevBookRef = useRef();
 
-  const [book, setBook] = useState({
+  const [editedBook, setEditedBook] = useState({
     title: currentTitle,
     author: currentAuthor,
     id: bookId,
   });
 
-  function handleBook({ target: { value, name } }) {
-    setBook((prevFormData) => ({
+  function handleEditedBook({ target: { value, name } }) {
+    setEditedBook((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
   }
 
-  // Track previous book to prevent unnecessary EDIT_ACTION calls
-
-  useEffect(() => {
-    prevBookRef.current = book;
-  }, [book.title]);
-
   const submitBook = (e) => {
     e.preventDefault();
-    if (prevBookRef.current !== book) {
-      dispatch(editBook(book));
+    // Check if book is actually edited to prevent unnecessary EDIT_ACTION calls.
+    if (presentBook.title !== editedBook.title || presentBook.author !== editedBook.author) {
+      dispatch(editBook(editedBook));
     }
 
     closeEditMenu();
   };
 
-  const { title, author } = book;
+  const { title, author } = editedBook;
   return (
     <form onSubmit={submitBook}>
       <input
@@ -51,7 +47,7 @@ function EditBook({
         type="text"
         id="title"
         value={title}
-        onChange={handleBook}
+        onChange={handleEditedBook}
         name="title"
       />
 
@@ -62,7 +58,7 @@ function EditBook({
         type="text"
         id="author"
         value={author}
-        onChange={handleBook}
+        onChange={handleEditedBook}
         name="author"
       />
 
