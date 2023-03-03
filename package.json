@@ -12,10 +12,15 @@
   },
   "dependencies": {
     "@vitejs/plugin-react": "^3.0.0",
+    "nanoid": "^4.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.2",
+    "redux": "^4.2.0",
+    "redux-logger": "^3.0.6",
+    "redux-undo": "^1.0.1",
     "vite": "^4.0.0"
   },
   "devDependencies": {
@@ -32,7 +37,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.27.4",
     "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.32.0",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.21",
     "prettier": "2.8.3",

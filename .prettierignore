@@ -2,3 +2,5 @@
 build
 coverage
 vite.config.js
+books.js
+configureStore.js

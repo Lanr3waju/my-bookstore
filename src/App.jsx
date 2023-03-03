@@ -1,17 +1,27 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Book from "./components/Book";
-import Books from "./components/Books";
-import Categories from "./components/Categories";
+import { useState } from "react";
+import BookList from "./components/BookList";
+import Header from "./components/Header";
 
 function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  const handleIsDark = () => setIsDark(!isDark);
+
   return (
     <BrowserRouter>
-      <h1>My BookStore</h1>
-      <Routes>
-        <Route path="/book/:id" element={<Book />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/" element={<Books />} />
-      </Routes>
+      <Header isDark={isDark} handleIsDark={handleIsDark} />
+      <main
+        className={
+          isDark
+            ? "px-12 py-16 text-white bg-slate-700 min-h-screen font-poppins"
+            : "px-12 bg-blue-50 py-16 min-h-screen font-poppins"
+        }
+      >
+        <Routes>
+          <Route path="/" element={<BookList isDark={isDark} />} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }
