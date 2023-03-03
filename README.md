@@ -15,6 +15,17 @@
   - React Router
   - Hooks
     - useState
+    - useEffect
+
+- Redux
+
+  - Redux-undo
+  -
+  - React Router
+  - Hooks
+    - useState
+    - useSelector
+    - useDispatch etc.
 
 - Tailwind
 
