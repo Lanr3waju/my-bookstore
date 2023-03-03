@@ -35,9 +35,9 @@ function AddBook() {
   return (
     <>
       <h1 className="font-semibold text-sky-500 text-lg">ADD NEW BOOK</h1>
-      <form className="" onSubmit={submitBook}>
+      <form className="flex flex-col items-center md:flex-row" onSubmit={submitBook}>
         <input
-          className="w-2/6 p-2 m-3 shadow-sm shadow-black font-medium text-black"
+          className="md:w-2/6 p-2 w-full m-3 shadow-md rounded-lg shadow-black font-medium text-black"
           aria-label="Book Title"
           placeholder="Enter book title"
           type="text"
@@ -48,7 +48,7 @@ function AddBook() {
         />
 
         <input
-          className="w-2/6 p-2 m-3 shadow-sm shadow-black font-medium text-black"
+          className="md:w-2/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium text-black"
           aria-label="Book Author"
           placeholder="Enter book author"
           type="text"
@@ -60,7 +60,7 @@ function AddBook() {
 
         <button
           disabled={title === "" || author === ""}
-          className="bg-slate-900 p-2 text-white disabled:opacity-10"
+          className="bg-slate-900 p-2 text-white disabled:opacity-40 rounded-md mt-4 md:m-0 active:bg-slate-900 w-2/4 md:w-auto"
           type="submit"
         >
           Submit

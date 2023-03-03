@@ -42,9 +42,10 @@ function EditBook({
 
   const { title, author } = editedBook;
   return (
-    <form onSubmit={submitBook}>
+    <form className="flex flex-col md:flex-row items-center" onSubmit={submitBook}>
       <input
-        className="w-1/4 rounded-sm p-2 mr-3 shadow-sm shadow-black font-medium text-black"
+        className="md:w-2/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium text-black"
+
         aria-label="Book Title"
         placeholder="Enter book title"
         type="text"
@@ -55,7 +56,7 @@ function EditBook({
       />
 
       <input
-        className="w-1/4 rounded-sm p-2 mr-3 shadow-sm shadow-black font-medium text-black"
+        className="md:w-2/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium text-black"
         aria-label="Book Author"
         placeholder="Enter book author"
         type="text"

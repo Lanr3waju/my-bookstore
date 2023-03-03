@@ -23,15 +23,15 @@ function Book({ title, author, id, isDark, displayModal }) {
           closeEditMenu={() => setBookEditState(false)}
         />
       ) : (
-        <section>
-          <h2 className="uppercase text-lg font-semibold tracking-wider">
+        <section className="w-full">
+          <h2 className="uppercase md:text-lg text-3xl font-semibold tracking-wider">
             {title}
           </h2>
           <h3
             className={
               isDark
-                ? "capitalize text-gray-300 text-sm"
-                : "text-sm capitalize text-gray-600"
+                ? "capitalize text-gray-300 md:text-sm text-2xl"
+                : "md:text-sm text-2xl capitalize text-gray-600"
             }
           >
             {author}{" "}
@@ -39,18 +39,18 @@ function Book({ title, author, id, isDark, displayModal }) {
         </section>
       )}
 
-      <div className="flex w-1/6 mt-6 justify-between">
+      <div className="flex flex-col md:flex-row md:w-2/6 w-full mt-6 md:justify-between">
         <button
           onClick={displayModal}
-          className="bg-red-600 rounded-sm p-2 text-sm text-yellow-50"
+          className="bg-red-600 rounded-sm p-2 md:text-sm text-lg text-yellow-50 m-2 w"
           type="button"
         >
           remove
         </button>
-        <div className="min-h-full w-[1px] bg-sky-400" />
+        <div className="min-h-full hidden md:block w-[1px] bg-sky-400" />
         <button
           onClick={() => setBookEditState(true)}
-          className="bg-orange-800 rounded-sm p-2 text-sm text-yellow-50"
+          className="bg-orange-800 rounded-sm p-2 md:text-sm text-lg text-yellow-50 m-2 w-"
           type="button"
         >
           edit book
