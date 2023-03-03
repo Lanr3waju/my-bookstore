@@ -20,7 +20,7 @@
 
 ## Live Demo
 
-[Live Demo Link](/)
+[Live Demo Link](https://lanr3-bookstore.netlify.app/)
 
 ### Development (Running locally)
 
