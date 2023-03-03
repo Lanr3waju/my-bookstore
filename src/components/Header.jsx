@@ -14,11 +14,11 @@ function Header({ isDark, handleIsDark }) {
     (state) => state.booksReducer.future.length
   );
   const dispatch = useDispatch();
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuOpen = () => {
-    setMenuOpen(!menuOpen)
-  }
+    setMenuOpen(!menuOpen);
+  };
 
   return (
     <header
@@ -34,9 +34,10 @@ function Header({ isDark, handleIsDark }) {
       <h3 className="tracking-wider my-2 font-medium">BOOKS</h3>
       <div className="w-[50%] justify-around items-center md:flex hidden">
         <button
-          className={isDark ?
-            "text-lg rounded-md px-5 py-1 bg-slate-600 disabled:opacity-50" :
-            "text-lg text-white rounded-md px-5 py-1 bg-sky-600 disabled:opacity-50"
+          className={
+            isDark
+              ? "text-lg rounded-md px-5 py-1 bg-slate-600 disabled:opacity-50"
+              : "text-lg text-white rounded-md px-5 py-1 bg-sky-600 disabled:opacity-50"
           }
           disabled={previousStateLength < 1}
           type="button"
@@ -46,9 +47,10 @@ function Header({ isDark, handleIsDark }) {
         </button>
 
         <button
-          className={isDark ?
-            "text-lg rounded-md px-5 py-1 bg-slate-600 disabled:opacity-50" :
-            "text-lg text-white rounded-md px-5 py-1 bg-sky-600 disabled:opacity-50"
+          className={
+            isDark
+              ? "text-lg rounded-md px-5 py-1 bg-slate-600 disabled:opacity-50"
+              : "text-lg text-white rounded-md px-5 py-1 bg-sky-600 disabled:opacity-50"
           }
           disabled={futureStateLength < 1}
           type="button"

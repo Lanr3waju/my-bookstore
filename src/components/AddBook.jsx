@@ -35,7 +35,10 @@ function AddBook() {
   return (
     <>
       <h1 className="font-semibold text-sky-500 text-lg">ADD NEW BOOK</h1>
-      <form className="flex flex-col items-center md:flex-row" onSubmit={submitBook}>
+      <form
+        className="flex flex-col items-center md:flex-row"
+        onSubmit={submitBook}
+      >
         <input
           className="md:w-2/6 p-2 w-full m-3 shadow-md rounded-lg shadow-black font-medium text-black"
           aria-label="Book Title"

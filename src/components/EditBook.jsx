@@ -42,10 +42,12 @@ function EditBook({
 
   const { title, author } = editedBook;
   return (
-    <form className="flex flex-col md:flex-row items-center" onSubmit={submitBook}>
+    <form
+      className="flex flex-col md:flex-row items-center"
+      onSubmit={submitBook}
+    >
       <input
         className="md:w-2/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium text-black"
-
         aria-label="Book Title"
         placeholder="Enter book title"
         type="text"
