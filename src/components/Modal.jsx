@@ -14,7 +14,7 @@ const Modal = ({ children }) => {
   }, []);
 
   return createPortal(
-    <div className="fixed w-full flex h-full  justify-center items-center font-tilt-neon bg-[rgba(0,0,0,0.8)]">
+    <div className="fixed w-full flex h-full  justify-center items-center z-[1000] font-tilt-neon bg-[rgba(0,0,0,0.8)]">
       {children}
     </div>,
     refElement.current

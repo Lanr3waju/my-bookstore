@@ -10,6 +10,8 @@ function AddBook() {
   const [newBook, setNewBook] = useState({
     title: "",
     author: "",
+    chapters: "",
+    chapter: 0,
     id: nanoid(),
   });
 
@@ -27,11 +29,12 @@ function AddBook() {
       ...prevFormData,
       title: "",
       author: "",
+      chapters: "",
       id: nanoid(),
     }));
   };
 
-  const { title, author } = newBook;
+  const { title, author, chapters } = newBook;
   return (
     <>
       <h1 className="font-semibold text-sky-500 text-lg">ADD NEW BOOK</h1>
@@ -61,14 +64,27 @@ function AddBook() {
           name="author"
         />
 
+        <input
+          className="md:w-1/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium text-black"
+          aria-label="Chapters"
+          placeholder="No. of chapters"
+          max="100"
+          min="0"
+          type="number"
+          id="chapters"
+          value={chapters}
+          onChange={handleNewBook}
+          name="chapters"
+        />
+
         <button
-          disabled={title === "" || author === ""}
+          disabled={title === "" || author === "" || chapters === 0}
           className="bg-slate-900 p-2 text-white disabled:opacity-40 rounded-md mt-4 md:m-0 active:bg-slate-900 w-2/4 md:w-auto"
           type="submit"
         >
           Submit
         </button>
-      </form>
+      </form >
     </>
   );
 }

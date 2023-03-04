@@ -20,13 +20,13 @@ const Books = ({ books, isDark }) => {
 
   return (
     <ul className="my-6">
-      {books.map(({ id, title, author }) => (
+      {books.map(({ id, title, author, chapters }) => (
         <li key={id}>
           {modal && (
             <Modal>
               <div
                 key={id}
-                className="bg-slate-700 z-50 opacity-100 border-2 rounded-lg p-20 text-white max-w-fit flex flex-col items-center"
+                className="bg-slate-700 z-[1000] opacity-100 border-2 rounded-lg p-20 text-white max-w-fit flex flex-col items-center"
               >
                 <h2 className="text-2xl">
                   Are you sure you want to remove book?
@@ -55,6 +55,7 @@ const Books = ({ books, isDark }) => {
             isDark={isDark}
             title={title}
             author={author}
+            chapters={+chapters}
             id={id}
           />
         </li>
