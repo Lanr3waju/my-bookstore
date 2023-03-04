@@ -7,7 +7,7 @@ import BookProgress from "./BookProgress";
 function Book({ title, author, id, isDark, displayModal, chapters }) {
   const [bookEditState, setBookEditState] = useState(false);
   const booksList = useSelector((state) => state.booksReducer.present);
-  const { chapter } = booksList.find((book) => book.id === id)
+  const { chapter } = booksList.find((book) => book.id === id);
 
   return (
     <section
@@ -63,7 +63,6 @@ function Book({ title, author, id, isDark, displayModal, chapters }) {
           <BookProgress id={id} chapters={chapters} chapter={+chapter} />
         </section>
       )}
-
     </section>
   );
 }
@@ -82,5 +81,5 @@ Book.propTypes = {
   author: PropTypes.string,
   isDark: PropTypes.bool.isRequired,
   displayModal: PropTypes.func.isRequired,
-  chapters: PropTypes.number.isRequired
+  chapters: PropTypes.number.isRequired,
 };

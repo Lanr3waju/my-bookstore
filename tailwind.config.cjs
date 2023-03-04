@@ -10,5 +10,5 @@ module.exports = {
     },
   },
   // eslint-disable-next-line global-require
-  plugins: ["@tailwindcss/forms", require('daisyui')],
+  plugins: ["@tailwindcss/forms", require("daisyui")],
 };
