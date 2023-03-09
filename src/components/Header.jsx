@@ -25,7 +25,7 @@ function Header({ isDark, handleIsDark }) {
       className={
         isDark
           ? "font-poppins bg-slate-900 text-white shadow-sky-700 shadow-inner md:justify-between p-4 items-center flex flex-col md:flex-row"
-          : "font-poppins p-4 items-center text-gray-700 flex shadow-md shadow-slate-800 md:justify-between flex-col md:flex-row"
+          : "font-poppins p-4 items-center bg-white text-gray-700 flex shadow-md shadow-slate-800 md:justify-between flex-col md:flex-row"
       }
     >
       <h2 className="md:text-2xl text-2xl md:mr-16 font-bold text-[#2B8FE3]">

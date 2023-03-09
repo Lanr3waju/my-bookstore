@@ -3,6 +3,7 @@ import undoable from 'redux-undo';
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const EDIT_BOOK = 'bookStore/books/EDIT_BOOK';
+const UPDATE_BOOK = 'bookStore/books/UPDATE_BOOK';
 
 const initialState = [];
 
@@ -18,6 +19,10 @@ export const editBook = (payload) => ({
   type: EDIT_BOOK,
   payload,
 });
+export const updateBook = (payload) => ({
+  type: UPDATE_BOOK,
+  payload,
+});
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -30,6 +35,12 @@ const reducer = (state = initialState, action) => {
     case EDIT_BOOK:
       return state.map((book) => {
         if (book.id === action.payload.id) return { ...action.payload };
+        return book;
+      });
+
+    case UPDATE_BOOK:
+      return state.map((book) => {
+        if (book.id === action.payload.id) return { ...book, chapter: action.payload.chapter };
         return book;
       });
 
