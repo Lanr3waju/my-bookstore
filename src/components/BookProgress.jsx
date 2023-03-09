@@ -26,8 +26,12 @@ export default function BookProgress({ chapters, chapter, id }) {
           <div className="w-[1px] h-[100px] bg-slate-700" />
 
           <section className="flex flex-col items-left">
-            <h2 className="md:font-semibold mb-2 md:text-base text-sm text-sky-500">Current chapter</h2>
-            <p className=" tracking-wider md:text-base mb-2 font-extralight text-sm">{chapter === 0 ? "Introduction" : `Chapter: ${chapter}`}</p>
+            <h2 className="md:font-semibold mb-2 md:text-base text-sm text-sky-500">
+              Current chapter
+            </h2>
+            <p className=" tracking-wider md:text-base mb-2 font-extralight text-sm">
+              {chapter === 0 ? "Introduction" : `Chapter: ${chapter}`}
+            </p>
             <button
               className="bg-orange-800 rounded-sm p-2 font-light text-sm text-yellow-50"
               type="button"
