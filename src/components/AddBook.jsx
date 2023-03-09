@@ -68,8 +68,8 @@ function AddBook() {
           className="md:w-1/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium text-black"
           aria-label="Chapters"
           placeholder="No. of chapters"
-          max="100"
-          min="0"
+          max="200"
+          min="1"
           type="number"
           id="chapters"
           value={chapters}
@@ -78,7 +78,7 @@ function AddBook() {
         />
 
         <button
-          disabled={title === "" || author === "" || chapters === 0}
+          disabled={title === "" || author === "" || chapters === ""}
           className="bg-slate-900 p-2 text-white disabled:opacity-40 rounded-md mt-4 md:m-0 active:bg-slate-900 w-2/4 md:w-auto"
           type="submit"
         >
