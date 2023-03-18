@@ -20,14 +20,7 @@ jobs:
       - name: ESLint Report
         run: npx eslint .
 
-        name: Linters
-
-on: pull_request
-
-env:
-  FORCE_COLOR: 1
-
-jobs:
+test:
   vitest:
     name: vitest
     runs-on: ubuntu-latest
@@ -40,4 +33,4 @@ jobs:
         run: |
           npm install
       - name: Vitest Report
-        run: npx eslint .
+        run: vitest --run
