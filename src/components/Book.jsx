@@ -1,13 +1,10 @@
 import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
 import { useState } from "react";
 import EditBook from "./EditBook";
 import BookProgress from "./BookProgress";
 
-function Book({ title, author, id, isDark, displayModal, chapters }) {
+function Book({ title, author, id, isDark, displayModal, chapters, chapter }) {
   const [bookEditState, setBookEditState] = useState(false);
-  const booksList = useSelector((state) => state.booksReducer.present);
-  const { chapter } = booksList.find((book) => book.id === id);
 
   return (
     <section
@@ -24,12 +21,14 @@ function Book({ title, author, id, isDark, displayModal, chapters }) {
           author={author}
           title={title}
           id={id}
+          chapters={chapters}
+          chapter={chapter}
           closeEditMenu={() => setBookEditState(false)}
         />
       ) : (
         <section className="w-full flex justify-between items-center md:flex-row flex-col">
           <section className="md:w-3/4 w-full mb-4">
-            <h2 className="uppercase md:text-4xl text-3xl font-semibold tracking-wider">
+            <h2 data-testid="book-title" className="uppercase md:text-4xl text-3xl font-semibold tracking-wider">
               {title}
             </h2>
             <h3
@@ -61,7 +60,7 @@ function Book({ title, author, id, isDark, displayModal, chapters }) {
             <hr className="md:hidden mt-5" />
           </section>
 
-          <BookProgress id={id} chapters={chapters} chapter={+chapter} />
+          <BookProgress id={id} chapters={chapters} chapter={chapter} />
         </section>
       )}
     </section>
@@ -83,4 +82,5 @@ Book.propTypes = {
   isDark: PropTypes.bool.isRequired,
   displayModal: PropTypes.func.isRequired,
   chapters: PropTypes.number.isRequired,
+  chapter: PropTypes.number.isRequired,
 };

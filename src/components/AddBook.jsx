@@ -51,6 +51,7 @@ function AddBook() {
           value={title}
           onChange={handleNewBook}
           name="title"
+          data-testid="title"
         />
 
         <input
@@ -62,6 +63,7 @@ function AddBook() {
           value={author}
           onChange={handleNewBook}
           name="author"
+          data-testid="author"
         />
 
         <input
@@ -75,12 +77,14 @@ function AddBook() {
           value={chapters}
           onChange={handleNewBook}
           name="chapters"
+          data-testid="chapters"
         />
 
         <button
           disabled={title === "" || author === "" || chapters === ""}
           className="bg-slate-900 p-2 text-white disabled:opacity-40 rounded-md mt-4 md:m-0 active:bg-slate-900 w-2/4 md:w-auto"
           type="submit"
+          data-testid="submit"
         >
           Submit
         </button>

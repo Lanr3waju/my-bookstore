@@ -1,11 +1,12 @@
-import { describe, it, expect } from "vitest";
+import * as React from 'react';
+import { render } from '@testing-library/react';
 
-describe("something truthy and falsy", () => {
-  it("true to be true", () => {
-    expect(true).toBe(true);
-  });
+import App from '../App';
 
-  it("false to be false", () => {
-    expect(false).toBe(false);
+describe('App', () => {
+  it('renders App component', () => {
+    const app = render(<App />);
+    expect(app.getByText('Lanrewaju BOOKSTORE')).toBeInTheDocument();
+    app.unmount();
   });
 });

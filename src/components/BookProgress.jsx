@@ -15,13 +15,13 @@ export default function BookProgress({ chapters, chapter, id }) {
       {updateBookProgress ? (
         <UpdateProgress
           chapters={chapters}
-          chapter={+chapter}
+          chapter={chapter}
           closeUpdateBookProgress={closeUpdateBookProgress}
           id={id}
         />
       ) : (
         <div className="flex justify-around md:w-3/6 w-full items-center">
-          <RadialProgress chapter={+chapter} chapters={chapters} />
+          <RadialProgress chapter={chapter} chapters={chapters} />
 
           <div className="w-[1px] h-[100px] bg-slate-700" />
 

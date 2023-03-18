@@ -1,12 +1,13 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import your Action Creators
 import { editBook } from "../redux/books/books";
 
 function EditBook({
   title: currentTitle,
   author: currentAuthor,
+  chapter: currentChapter,
+  chapters: currentChapters,
   id: bookId,
   closeEditMenu,
 }) {
@@ -18,6 +19,8 @@ function EditBook({
     title: currentTitle,
     author: currentAuthor,
     id: bookId,
+    chapter: currentChapter,
+    chapters: currentChapters
   });
 
   function handleEditedBook({ target: { value, name } }) {
@@ -67,7 +70,6 @@ function EditBook({
         onChange={handleEditedBook}
         name="author"
       />
-
       <button
         disabled={title === "" || author === ""}
         className="bg-slate-900 p-2 text-white disabled:opacity-10"
@@ -85,5 +87,7 @@ EditBook.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
+  chapter: PropTypes.number.isRequired,
+  chapters: PropTypes.number.isRequired,
   closeEditMenu: PropTypes.func.isRequired,
 };
