@@ -12,7 +12,7 @@ const Books = ({ books, isDark }) => {
 
   useEffect(() => {
     if (modal) setModal(false);
-  }, [books]);
+  }, [modal]);
 
   const displayModal = () => {
     setModal(true);
@@ -20,7 +20,7 @@ const Books = ({ books, isDark }) => {
 
   return (
     <ul className="my-6">
-      {books.map(({ id, title, author, chapters }) => (
+      {books.map(({ id, title, author, chapters, chapter }) => (
         <li key={id}>
           {modal && (
             <Modal>
@@ -56,6 +56,7 @@ const Books = ({ books, isDark }) => {
             title={title}
             author={author}
             chapters={+chapters}
+            chapter={+chapter}
             id={id}
           />
         </li>

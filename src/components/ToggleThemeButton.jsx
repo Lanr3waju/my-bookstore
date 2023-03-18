@@ -5,7 +5,12 @@ import sunIcon from "../images/sun.png";
 
 export default function ToggleThemeButton({ handleIsDark, isDark }) {
   return (
-    <button type="button" onClick={handleIsDark}>
+    <button
+      type="button"
+      name="toggle theme"
+      data-testid="toggle theme"
+      onClick={handleIsDark}
+    >
       <img src={isDark ? sunIcon : moonIcon} alt="theme icon" />
     </button>
   );
