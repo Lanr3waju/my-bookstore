@@ -7,10 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "test": "vitest",
-    "test:run": "vitest --run",
+    "test:run": "vitest --run --coverage",
     "test:coverage": "vitest --coverage",
     "preview": "vite preview",
-    "lint": "npx eslint . --fix",
+    "lint": "npx eslint \"**/*.{js,jsx}\" --fix",
+    "lint:check": "npx eslint \"**/*.{js,jsx}\"",
     "format": "npx prettier --write ."
   },
   "dependencies": {
@@ -49,6 +50,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.27.4",
     "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.21",

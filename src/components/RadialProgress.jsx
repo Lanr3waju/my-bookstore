@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 
 export default function RadialProgress({ chapters, chapter }) {
   const [progressColor, setProgressColor] = useState("");
 
-  const getValue = () => {
+  const getValue = useCallback(() => {
     const value = Math.round((chapter / chapters) * 100);
     return value;
-  };
+  },
+    [chapter, chapters]);
 
   useEffect(() => {
     if (getValue() < 30) {
@@ -17,7 +18,7 @@ export default function RadialProgress({ chapters, chapter }) {
     } else if (getValue() >= 70) {
       setProgressColor("text-green-500");
     }
-  }, [chapter]);
+  }, [getValue]);
 
   return (
     <div
