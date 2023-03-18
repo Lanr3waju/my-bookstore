@@ -20,7 +20,7 @@ function EditBook({
     author: currentAuthor,
     id: bookId,
     chapter: currentChapter,
-    chapters: currentChapters
+    chapters: currentChapters,
   });
 
   function handleEditedBook({ target: { value, name } }) {

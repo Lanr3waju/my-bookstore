@@ -28,7 +28,10 @@ function Book({ title, author, id, isDark, displayModal, chapters, chapter }) {
       ) : (
         <section className="w-full flex justify-between items-center md:flex-row flex-col">
           <section className="md:w-3/4 w-full mb-4">
-            <h2 data-testid="book-title" className="uppercase md:text-4xl text-3xl font-semibold tracking-wider">
+            <h2
+              data-testid="book-title"
+              className="uppercase md:text-4xl text-3xl font-semibold tracking-wider"
+            >
               {title}
             </h2>
             <h3
