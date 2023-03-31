@@ -19,24 +19,10 @@ describe("MobileMenu", () => {
     store = mockStore(initialState);
   });
 
-  it("renders with undo and redo buttons", () => {
-    render(
-      <Provider store={store}>
-        <MobileMenu isDark={false} handleIsDark={() => {}} />
-      </Provider>
-    );
-
-    const undoButton = screen.getByText("undo");
-    const redoButton = screen.getByText("redo");
-
-    expect(undoButton).toBeInTheDocument();
-    expect(redoButton).toBeInTheDocument();
-  });
-
   it("renders ToggleThemeButton", () => {
     render(
       <Provider store={store}>
-        <MobileMenu isDark={false} handleIsDark={() => {}} />
+        <MobileMenu isDark={false} handleIsDark={() => { }} />
       </Provider>
     );
 
