@@ -7,29 +7,31 @@
 ## Built With
 
 - Vite
-- Vitest; for running unit tests
-- Happy-DOM
 
 - React
-- React Testing Library
-
   - JSX
   - Forms Library
   - React Router
+  - createPortal for Modal
   - Hooks
     - useState
     - useEffect
+    - useSelector
+    - useDispatch
+    - useRef
 
 - Redux
-
   - Redux-undo
-  -
-  - Hooks
-    - useSelector
-    - useDispatch etc.
 
 - Tailwind CSS
   - DaisyUi plugin
+
+- Tests
+  - Vitest
+  - React Testing Library
+  - Happy-DOM
+  - Redux Mock-store
+  - Redux thunk
 
 ## Live Demo
 
