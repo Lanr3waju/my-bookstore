@@ -7,8 +7,7 @@ export default function RadialProgress({ chapters, chapter }) {
   const getValue = useCallback(() => {
     const value = Math.round((chapter / chapters) * 100);
     return value;
-  },
-    [chapter, chapters]);
+  }, [chapter, chapters]);
 
   useEffect(() => {
     if (getValue() < 30) {
