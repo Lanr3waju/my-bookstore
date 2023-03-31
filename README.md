@@ -1,6 +1,6 @@
 # MY BOOK-STORE
 
-> This is an electronic book-store app with CRUD features and  an undo with redo feature built with Vite, React and TailwindCSS.
+> This is an electronic book-store app with CRUD features and an undo with redo feature built with Vite, React and TailwindCSS.
 
 ![screenshot](./src/images/prev.png)
 
