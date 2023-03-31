@@ -1,19 +1,11 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { ActionCreators } from "redux-undo";
-import { useSelector, useDispatch } from "react-redux";
+import UndoRedo from "./UndoRedo";
 import MobileMenu from "./MobileMenu";
 import ToggleThemeButton from "./ToggleThemeButton";
 import ToggleMenuButton from "./ToggleMobileMenuButton";
 
 function Header({ isDark, handleIsDark }) {
-  const previousStateLength = useSelector(
-    (state) => state.booksReducer.past.length
-  );
-  const futureStateLength = useSelector(
-    (state) => state.booksReducer.future.length
-  );
-  const dispatch = useDispatch();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuOpen = () => {
@@ -33,31 +25,7 @@ function Header({ isDark, handleIsDark }) {
       </h2>
       <h3 className="tracking-wider my-2 font-medium">BOOKS</h3>
       <div className="w-[50%] justify-around items-center md:flex hidden">
-        <button
-          className={
-            isDark
-              ? "text-lg rounded-md px-5 py-1 bg-slate-600 disabled:opacity-50"
-              : "text-lg text-white rounded-md px-5 py-1 bg-sky-600 disabled:opacity-50"
-          }
-          disabled={previousStateLength < 1}
-          type="button"
-          onClick={() => dispatch(ActionCreators.undo())}
-        >
-          undo
-        </button>
-
-        <button
-          className={
-            isDark
-              ? "text-lg rounded-md px-5 py-1 bg-slate-600 disabled:opacity-50"
-              : "text-lg text-white rounded-md px-5 py-1 bg-sky-600 disabled:opacity-50"
-          }
-          disabled={futureStateLength < 1}
-          type="button"
-          onClick={() => dispatch(ActionCreators.redo())}
-        >
-          redo
-        </button>
+        <UndoRedo isDark={isDark} />
         <ToggleThemeButton isDark={isDark} handleIsDark={handleIsDark} />
       </div>
       <ToggleMenuButton isOpen={menuOpen} handleIsOpen={handleMenuOpen} />
