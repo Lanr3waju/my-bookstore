@@ -37,7 +37,7 @@ function UpdateProgress({
       onSubmit={submitBook}
     >
       <input
-        className="md:w-2/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium text-black"
+        className="md:w-2/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium"
         aria-label="Book chapter"
         placeholder="Enter book chapter"
         type="number"

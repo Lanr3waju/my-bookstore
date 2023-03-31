@@ -50,7 +50,7 @@ function EditBook({
       onSubmit={submitBook}
     >
       <input
-        className="md:w-2/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium text-black"
+        className="md:w-2/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium"
         aria-label="Book Title"
         placeholder="Enter book title"
         type="text"
@@ -61,7 +61,7 @@ function EditBook({
       />
 
       <input
-        className="md:w-2/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium text-black"
+        className="md:w-2/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium"
         aria-label="Book Author"
         placeholder="Enter book author"
         type="text"

@@ -43,7 +43,7 @@ function AddBook() {
         onSubmit={submitBook}
       >
         <input
-          className="md:w-2/6 p-2 w-full m-3 shadow-md rounded-lg shadow-black font-medium text-black"
+          className="md:w-2/6 p-2 w-full m-3 shadow-md rounded-lg shadow-black font-medium"
           aria-label="Book Title"
           placeholder="Enter book title"
           type="text"
@@ -55,7 +55,7 @@ function AddBook() {
         />
 
         <input
-          className="md:w-2/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium text-black"
+          className="md:w-2/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium"
           aria-label="Book Author"
           placeholder="Enter book author"
           type="text"
@@ -67,7 +67,7 @@ function AddBook() {
         />
 
         <input
-          className="md:w-1/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium text-black"
+          className="md:w-1/6 w-full p-2 m-3 shadow-md rounded-lg shadow-black font-medium"
           aria-label="Chapters"
           placeholder="No. of chapters"
           max="200"
