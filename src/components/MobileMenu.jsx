@@ -1,17 +1,8 @@
-import { ActionCreators } from "redux-undo";
 import PropTypes from "prop-types";
-import { useSelector, useDispatch } from "react-redux";
+import UndoRedo from "./UndoRedo";
 import ToggleThemeButton from "./ToggleThemeButton";
 
 export default function MobileMenu({ isDark, handleIsDark }) {
-  const dispatch = useDispatch();
-  const previousStateLength = useSelector(
-    (state) => state.booksReducer.past.length
-  );
-  const futureStateLength = useSelector(
-    (state) => state.booksReducer.future.length
-  );
-
   return (
     <div
       className={
@@ -20,7 +11,8 @@ export default function MobileMenu({ isDark, handleIsDark }) {
           : "my-3 md:hidden w-3/4 bg-sky-200 p-4 rounded-md flex flex-col items-center justify-center"
       }
     >
-      <button
+      <UndoRedo />
+      {/* <button
         className={
           isDark
             ? "mx-4 text-lg rounded-md px-5 py-1 bg-slate-800 border-[1px] border-white disabled:opacity-50 my-4"
@@ -44,7 +36,7 @@ export default function MobileMenu({ isDark, handleIsDark }) {
         onClick={() => dispatch(ActionCreators.redo())}
       >
         redo
-      </button>
+      </button> */}
       <div className="h-[1px] w-full bg-black mb-3" />
       <ToggleThemeButton isDark={isDark} handleIsDark={handleIsDark} />
     </div>

@@ -1,14 +1,17 @@
 # MY BOOK-STORE
 
-> This is an electronic book-store app.
+> This is an electronic book-store app with CRUD features and an undo with redo feature built with Vite, React and TailwindCSS.
 
-![screenshot](./)
+![screenshot](./src/images/prev.png)
 
 ## Built With
 
 - Vite
+- Vitest; for running unit tests
+- Happy-DOM
 
 - React
+- React Testing Library
 
   - JSX
   - Forms Library
@@ -21,13 +24,12 @@
 
   - Redux-undo
   -
-  - React Router
   - Hooks
-    - useState
     - useSelector
     - useDispatch etc.
 
-- Tailwind
+- Tailwind CSS
+  - DaisyUi plugin
 
 ## Live Demo
 
@@ -71,7 +73,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments and Resources used
 
-- [Abass](/)
+- [Icons8](https://icons8.com/)
+- [daisyUI](https://daisyui.com/)
 
 ## 📝 License
 
