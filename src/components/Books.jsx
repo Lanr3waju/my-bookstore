@@ -12,7 +12,7 @@ const Books = ({ books, isDark }) => {
 
   useEffect(() => {
     if (modal) setModal(false);
-  }, [modal]);
+  }, [books]);
 
   const displayModal = () => {
     setModal(true);
